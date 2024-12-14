@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Business Details</title>
+  </head>
+  <body>
+    <h1>Business Information</h1>
+
+    <p id="business-name"></p>
+    <p id="business-industry"></p>
+    <script>
+      const companyDetails = {
+        name: "Tech Corp",
+        founded: 2010,
+        industry: "Technology",
+      };
+      document.getElementById(
+        "business-name"
+      ).innerText = `Company Name: ${companyDetails.name}`;
+      document.getElementById(
+        "business-industry"
+      ).innerText = `Industry: ${companyDetails.industry}`;
+    </script>
+  </body>
+</html>

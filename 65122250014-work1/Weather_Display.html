@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+
+    21
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Display</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      #weather {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>เช็คสภาพอากาศ</h1>
+    เมือง:
+    <input type="text" id="city-input" placeholder="กรณุ ําใสช่ อื่ เมอื ง" />
+    <button id="get-weather-btn">ดูสภาพอากาศ</button>
+    <div id="weather"></div>
+    <script>
+      document.getElementById("get-weather-btn").onclick = function () {
+        const city = document.getElementById("city-input").value;
+        // const apiKey = "f0aac54e7b20ff111fd706a69f8cd87b"; ใส่ API Key ของคุณที่นี่
+        const apiKey = "938c2647d8b1869b01b6b4940cea90df"
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=met
+ric`;
+        fetch(url)
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.cod === 200) {
+              const weatherInfo = `
+<h2>สภาพอากาศใน ${data.name}</h2>
+<p>อุณหภูมิ: ${data.main.temp} °C</p>
+<p>สภาพ: ${data.weather[0].description}</p>
+`;
+              document.getElementById("weather").innerHTML = weatherInfo;
+            } else {
+              document.getElementById("weather").innerHTML =
+                "<p>ไม่พบข้อมูลสภาพอากาศ</p>";
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching weather data:", error);
+            document.getElementById("weather").innerHTML =
+              "<p>เกิดข้อผิดพลาดในการดึงข้อมูล</p>";
+          });
+      };
+    </script>
+  </body>
+</html>

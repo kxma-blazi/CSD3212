@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Data</title>
+
+    14
+  </head>
+  <body>
+    <h1>API Data Fetch</h1>
+    <p id="api-data">Fetching data...</p>
+    <script>
+      const apiUrl = "https://jsonplaceholder.typicode.com/posts/1";
+      fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById(
+            "api-data"
+          ).innerText = `Title: ${data.title}`;
+        })
+        .catch((error) => {
+          document.getElementById("api-data").innerText = `Error: ${error}`;
+        });
+    </script>
+  </body>
+</html>

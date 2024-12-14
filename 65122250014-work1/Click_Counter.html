@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Click Counter</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      #counter {
+        font-size: 24px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>โปรแกรมนับจำนวนคลิก</h1>
+    <button id="click-btn">คลิกที่นี่!</button>
+    <div id="counter">จ ํานวนคลิก: 0</div>
+    <script>
+      let count = 0;
+
+      20;
+
+      document.getElementById("click-btn").onclick = function () {
+        count++;
+        document.getElementById("counter").innerHTML = "จ ํานวนคลิก: " + count;
+      };
+    </script>
+  </body>
+</html>

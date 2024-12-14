@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Login</title>
+  </head>
+  <body>
+    <h1>User Login Status</h1>
+    <p id="login-status">User logged out</p>
+    <button onclick="toggleLogin()">Toggle Login</button>
+    <script>
+      var isLoggedIn = false;
+      function toggleLogin() {
+        isLoggedIn = !isLoggedIn;
+        document.getElementById("login-status").innerText = isLoggedIn
+          ? "User logged in"
+          : "User logged out";
+      }
+    </script>
+  </body>
+</html>

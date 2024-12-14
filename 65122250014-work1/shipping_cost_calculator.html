@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shipping Cost</title>
+  </head>
+  <body>
+    <h1>Shipping Cost Calculator</h1>
+    <p>Total Price: $200</p>
+    <p>Shipping Cost: $20</p>
+    <p id="total-display">Total Amount: $220</p>
+    <script>
+      let totalPrice = 200;
+      let shippingCost = 20;
+      let totalAmount = totalPrice + shippingCost;
+      document.getElementById(
+        "total-display"
+      ).innerText = `Total Amount: $${totalAmount}`;
+    </script>
+  </body>
+</html>

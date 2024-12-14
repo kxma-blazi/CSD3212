@@ -1,0 +1,36 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    <meta charset="UTF-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <title>Sales Tax Calculator</title> 
+  </head> 
+  <body> 
+
+    <h1>Sales Tax Calculator</h1> 
+    <!-- แสดงยอดขายรวม --> 
+    <p>Total Sales: $1000</p> 
+
+    <!-- แสดงอัตราภาษี --> 
+    <p>Tax Rate: 15%</p> 
+
+    <!-- พื้นที่สำหรับแสดงผลยอดรวมหลังบวกภาษี --> 
+    <p id="total-amount"></p> 
+    <script> 
+
+      // กำหนดยอดขายรวม 
+      const totalSales = 1000; 
+
+      // กำหนดอัตราภาษี (15%) 
+      const taxRate = 0.15; 
+
+      // คำนวณยอดขายรวมหลังบวกภาษี 
+      const totalAmount = totalSales + totalSales * taxRate; 
+
+      // แสดงยอดขายรวมหลังบวกภาษีในหน้า HTML 
+      document.getElementById( 
+        "total-amount" 
+      ).innerText = `Total Amount with Tax: $${totalAmount}`; 
+    </script> 
+  </body> 
+</html> 

@@ -1,0 +1,47 @@
+<!DOCTYPE html> 
+
+<html lang="en"> 
+
+  <head> 
+
+    <meta charset="UTF-8" /> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+
+    <title>Membership Status</title> 
+
+  </head> 
+
+  <body> 
+
+    <h1>Membership Status</h1> 
+
+    <p id="status-display">You are not a member.</p> 
+
+    <button onclick="toggleMembership()">Toggle Membership</button> 
+
+ 
+
+    <script> 
+
+      let isMember = false; 
+
+ 
+
+      function toggleMembership() { 
+
+        isMember = !isMember; 
+
+        document.getElementById("status-display").innerText = isMember 
+
+          ? "You are a member!" 
+
+          : "You are not a member."; 
+
+      } 
+
+    </script> 
+
+  </body> 
+
+</html> 

@@ -1,0 +1,69 @@
+<!DOCTYPE html> 
+
+<html lang="en"> 
+
+  <head> 
+
+    <meta charset="UTF-8" /> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+
+    <title>Discount Calculator</title> 
+
+     
+
+    <!-- Tag scrip --> 
+
+    <script> 
+
+      // ฟังก์ชันสำหรับคำนวณราคาหลังหักส่วนลด 
+
+      function calculateDiscount() { 
+
+        // กำหนดราคาสินค้ารวม 
+
+        const totalPrice = 1000; 
+
+        // อัตราส่วนลด (20%) 
+
+        const discountRate = 0.2; 
+
+        // คำนวณราคาหลังหักส่วนลด 
+
+        const discountedPrice = totalPrice - (totalPrice * discountRate); 
+
+        // แสดงผลราคาหลังหักส่วนลดในหน้า HTML 
+
+        document.getElementById("discount-result").innerText = `Discounted Price:  
+
+        $${discountedPrice}`;  // $$ = ตัวเเปร  
+
+        
+
+      } 
+
+    </script> 
+
+  </head> 
+
+  <body> 
+
+    <h1>Discount Calculator</h1> 
+
+    <h3>Progamer name: SAHARAT 014</h3> 
+
+    <p>Total Price: $1000</p> 
+
+    <p>Discount Rate: 20%</p> 
+
+    <!-- ปุ่มสำหรับเรียกใช้ฟังก์ชัน calculateDiscount --> 
+
+    <button onclick="calculateDiscount()">Calculate Discount</button> 
+
+    <!-- พื้นที่สำหรับแสดงผลราคาหลังหักส่วนลด --> 
+
+    <p id="discount-result"></p> 
+
+  </body> 
+
+</html> 

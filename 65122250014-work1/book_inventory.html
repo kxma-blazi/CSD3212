@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบจัดการหนังสือ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .book-list {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+        .book-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f0f8ff;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+        .delete-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .delete-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ระบบจัดการหนังสือ</h1>
+        <p style="text-align: center;">โปรแกรมเมอร์: สหรัถ อินตะวิรา</p>
+        <form id="bookForm">
+            <label for="title">ชื่อหนังสือ:</label>
+            <input type="text" id="title" placeholder="กรอกชื่อหนังสือ" required>
+
+            <label for="author">ผู้แต่ง:</label>
+            <input type="text" id="author" placeholder="กรอกชื่อผู้แต่ง" required>
+
+            <label for="price">ราคา:</label>
+            <input type="number" id="price" placeholder="กรอกราคา" min="0" required>
+
+            <button type="button" onclick="addBook()">เพิ่มหนังสือ</button>
+        </form>
+
+        <h2>รายการหนังสือที่เลือก</h2>
+        <div id="bookList" class="book-list"></div>
+    </div>
+
+    <script>
+        const bookList = document.getElementById('bookList');
+        const books = [];
+
+        function addBook() {
+            const title = document.getElementById('title').value.trim();
+            const author = document.getElementById('author').value.trim();
+            const price = document.getElementById('price').value.trim();
+
+            if (title === '' || author === '' || price === '') {
+                alert('กรุณากรอกข้อมูลให้ครบถ้วน');
+                return;
+            }
+
+            const book = {
+                title,
+                author,
+                price
+            };
+            books.push(book);
+            displayBooks();
+            clearForm();
+        }
+
+        function deleteBook(index) {
+            books.splice(index, 1);
+            displayBooks();
+        }
+
+        function displayBooks() {
+            bookList.innerHTML = '';
+            books.forEach((book, index) => {
+                const bookItem = document.createElement('div');
+                bookItem.className = 'book-item';
+                bookItem.innerHTML = `
+                    <span>${book.title} โดย ${book.author} - ${book.price} บาท</span>
+                    <button class="delete-btn" onclick="deleteBook(${index})">ลบ</button>
+                `;
+                bookList.appendChild(bookItem);
+            });
+        }
+
+        function clearForm() {
+            document.getElementById('title').value = '';
+            document.getElementById('author').value = '';
+            document.getElementById('price').value = '';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html> 
+
+<html lang="en"> 
+
+  <head> 
+
+    <meta charset="UTF-8" /> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+
+    <title>Shopping Cart</title> 
+
+  </head> 
+
+  <body> 
+
+    <h1>Shopping Cart</h1> 
+
+    <p id="cart-display">Items in cart: 0</p> 
+
+    <button onclick="addToCart()">Add to Cart</button> 
+
+ 
+
+    <script> 
+
+      let cartItems = 0; 
+
+ 
+
+      function addToCart() { 
+
+        cartItems++; 
+
+        document.getElementById( 
+
+          "cart-display" 
+
+        ).innerText = `Items in cart: ${cartItems}`; 
+
+      } 
+
+    </script> 
+
+  </body> 
+
+</html> 
